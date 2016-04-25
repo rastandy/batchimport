@@ -250,7 +250,7 @@ $services.localization.use('document', 'BatchImport.Translations')
 
 #macro(displayParsedValue $property $parsedValue $applicationTemplateObject)
   ## switch some cases here, depending on the type of data and the value
-  #if($parsedValue != $xwiki.null)#if($parsedValue.class.name.endsWith("List") &amp;&amp; "$!parsedValue" != ""){{html wiki="false" clean="false"}}&lt;ul&gt;#foreach($val in $parsedValue)&lt;li&gt;${val}&lt;/li&gt;#end&lt;/ul&gt;{{/html}}#elseif($parsedValue.class.name.endsWith("Boolean") &amp;&amp; "$!parsedValue" != "")#if($parsedValue)${applicationTemplateObject.set($property.name, 1)}#else${applicationTemplateObject.set($property.name, 0)}#end${applicationTemplateObject.display($property.name, 'view')}#else${applicationTemplateObject.set($property.name, $parsedValue)}${applicationTemplateObject.display($property.name, 'view')}#end#else{{warning}} {{/warning}}#end
+  #if($parsedValue != $null)#if($parsedValue.class.name.endsWith("List") &amp;&amp; "$!parsedValue" != ""){{html wiki="false" clean="false"}}&lt;ul&gt;#foreach($val in $parsedValue)&lt;li&gt;${val}&lt;/li&gt;#end&lt;/ul&gt;{{/html}}#elseif($parsedValue.class.name.endsWith("Boolean") &amp;&amp; "$!parsedValue" != "")#if($parsedValue)${applicationTemplateObject.set($property.name, 1)}#else${applicationTemplateObject.set($property.name, 0)}#end${applicationTemplateObject.display($property.name, 'view')}#else${applicationTemplateObject.set($property.name, $parsedValue)}${applicationTemplateObject.display($property.name, 'view')}#end#else{{warning}} {{/warning}}#end
 #end
 
 #macro(displayMappingPreview)
