@@ -490,7 +490,6 @@ public class DefaultBatchImport implements BatchImport
             return new DocumentReference(wiki, spaceList, name);
         } else {
             // current wiki, build the reference relative to current wiki
-            LOGGER.warn("Wiki null path!!!!!!!!!");
             return currentDocumentEntityReferenceResolver.resolve(new EntityReference(name, EntityType.DOCUMENT,
                                                                                       new EntityReference(dataSpace, EntityType.SPACE, new EntityReference(space, EntityType.SPACE))));
         }
