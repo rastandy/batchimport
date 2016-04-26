@@ -33,6 +33,7 @@ import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Arrays;
 import java.util.Locale;
 import java.util.Map;
 import java.util.regex.Pattern;
@@ -464,13 +465,34 @@ public class DefaultBatchImport implements BatchImport
 
     protected DocumentReference prepareDocumentReference(String wiki, String space, String name)
     {
+        String dataSpace = null;
+        List<String> spaceList = null;
+
+        try {
+            XWikiContext xcontext = getXWikiContext();
+            XWiki xwiki = xcontext.getWiki();
+            XWikiDocument doc = xwiki.getDocument(space + ".WebHome", xcontext);
+            com.xpn.xwiki.objects.BaseObject appWithinMinutesObj = doc.getObject("AppWithinMinutes.LiveTableClass");
+            dataSpace = appWithinMinutesObj.getStringValue("dataSpace");
+            if (dataSpace == null) dataSpace = "";
+
+            dataSpace = dataSpace.replaceAll("\\.", "");
+
+            String[] spaceNames = {space, dataSpace};
+            spaceList = Arrays.asList(spaceNames);
+        } catch (XWikiException e) {
+            dataSpace = "";
+            LOGGER.warn("Exception encountered for document ", e);
+        }
+
         if (!StringUtils.isEmpty(wiki)) {
             // specified wiki, put it in there
-            return new DocumentReference(wiki, space, name);
+            return new DocumentReference(wiki, spaceList, name);
         } else {
             // current wiki, build the reference relative to current wiki
+            LOGGER.warn("Wiki null path!!!!!!!!!");
             return currentDocumentEntityReferenceResolver.resolve(new EntityReference(name, EntityType.DOCUMENT,
-                new EntityReference(space, EntityType.SPACE)));
+                                                                                      new EntityReference(dataSpace, EntityType.SPACE, new EntityReference(space, EntityType.SPACE))));
         }
     }
 
