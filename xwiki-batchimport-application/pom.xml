@@ -56,9 +56,6 @@
         <configuration>
           <!-- Add missing license headers by default -->
           <formatLicense>false</formatLicense>
-          <technicalPages>
-            <technicalPage>.*Translations.*\.xml</technicalPage>
-          </technicalPages>
         </configuration>
       </plugin>
     </plugins>
