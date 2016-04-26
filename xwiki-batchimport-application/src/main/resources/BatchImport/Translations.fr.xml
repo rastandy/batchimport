@@ -4,7 +4,7 @@
   <web>BatchImport</web>
   <name>Translations</name>
   <language>fr</language>
-  <defaultLanguage/>
+  <defaultLanguage>en</defaultLanguage>
   <translation>1</translation>
   <parent>BatchImport.WebHome</parent>
   <creator>xwiki:XWiki.Admin</creator>
@@ -22,7 +22,7 @@
   <comment/>
   <minorEdit>false</minorEdit>
   <syntaxId>xwiki/2.1</syntaxId>
-  <hidden>false</hidden>
+  <hidden>true</hidden>
   <content>## wizard ##
 batchimport.import.title=Importer des données dans l''application "{0}"
 ## Step upload file ##

@@ -25,7 +25,7 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
-import org.apache.axis.utils.StringUtils;
+import org.codehaus.plexus.util.StringUtils;
 import org.xwiki.model.reference.AttachmentReference;
 
 /**
