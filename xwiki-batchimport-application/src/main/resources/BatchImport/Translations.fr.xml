@@ -4,7 +4,7 @@
   <web>BatchImport</web>
   <name>Translations</name>
   <language>fr</language>
-  <defaultLanguage>en</defaultLanguage>
+  <defaultLanguage/>
   <translation>1</translation>
   <parent>BatchImport.WebHome</parent>
   <creator>xwiki:XWiki.Admin</creator>
