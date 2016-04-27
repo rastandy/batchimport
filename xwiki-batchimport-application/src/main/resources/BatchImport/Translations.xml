@@ -3,7 +3,7 @@
 <xwikidoc>
   <web>BatchImport</web>
   <name>Translations</name>
-  <language>en</language>
+  <language/>
   <defaultLanguage>en</defaultLanguage>
   <translation>0</translation>
   <parent>BatchImport.WebHome</parent>
